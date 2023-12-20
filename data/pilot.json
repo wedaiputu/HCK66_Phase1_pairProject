@@ -1,0 +1,17 @@
+[
+    {   
+        "name" : "Ternak Sapi",
+        "licenseNumber" : "1HOKAG3",
+        "experience" : 5
+    },
+    {   
+        "name" : "Dagang Bacang",
+        "licenseNumber" : "1HOKAG4",
+        "experience" : 3
+    },
+    {   
+        "name" : "Warteg Depan",
+        "licenseNumber" : "2HOKAG3",
+        "experience" : 1
+    }
+]
