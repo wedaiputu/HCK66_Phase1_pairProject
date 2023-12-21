@@ -7,6 +7,7 @@ const {Destination, Plane, Pilot, Schedule} = require('./models')
 
 
 app.set("view engine", "ejs")
+app.use(express.static(__dirname + '/public'));
 app.use(express.static("views"))
 app.use(express.urlencoded({extended:true}))
 

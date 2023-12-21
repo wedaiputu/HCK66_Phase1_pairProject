@@ -16,6 +16,7 @@ class Controller {
             let data = await Plane.findAll({
                 include : Destination
             })
+            console.log(data);
             res.render('plandestination', {data})
         } catch (error) {
             res.send(error.message)
