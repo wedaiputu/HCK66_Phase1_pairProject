@@ -3,6 +3,7 @@ const router = express.Router()
 const { Controller } = require('../controllers/controller')
 const AdminController = require('../controllers/login')
 const session = require('express-session')
+const destinationRouter = require('./destinationRouter')
 
 router.use(session({
   secret: 'keyboard cat'
@@ -10,7 +11,8 @@ router.use(session({
 
 
 const login = require('./login')
-const register = require('./register')
+// const register = require('./register')
+const addRouter = require('./addRouter')
 
 const isLogin = function (req, res, next) {
     if(req.session && req.session.UserId) {
@@ -26,6 +28,8 @@ router.get('/logout', Controller.out)
 router.use('/login', login)
 router.get('/showPilot', Controller.showPilot)
 router.get('/showPlane', Controller.showPlane)
+router.use('/showDestination',destinationRouter )
+router.use('/addFlight', addRouter)
 
 router.use(isLogin)
 module.exports = router

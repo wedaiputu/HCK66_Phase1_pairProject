@@ -1,5 +1,5 @@
 const { User } = require('../models/index')
-
+const bcrypt = require('bcrypt')
 class Login {
   static show(req, res) {
     try {
@@ -18,11 +18,38 @@ class Login {
 
   static async login(req, res) {
     try {
-      const user = await User.login(req.body)
-      req.session.UserId = user
-      req.session.email = req.body.email
+      let input = req.body
+      const account = await User.findOne({
+        attributes: [
+          "id",
+          "email",
+          "role",
+          "password",
+        ],
+        where: {
+          email: input.email
+        }
+      })
 
-      res.redirect('/')
+    
+
+      if(account) {
+        const isValidPassword = bcrypt.compareSync(input.password, account.password)
+        if(isValidPassword) {
+          
+
+        req.session.UserId = account.id
+        req.session.role = account.role
+        req.session.email = req.body.email
+        
+
+        res.redirect('/')
+        }
+      }else{
+        throw new Error('Invalid password or username.')
+      }
+      
+
     } catch (error) {
       res.redirect(`/login?error=${error.message}`)
     }

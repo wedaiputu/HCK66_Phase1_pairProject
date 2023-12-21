@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const router = require('./routes');
-const port = 3000
+const port = 3007
 // const {Destination, Plane, Pilot, Schedule} = require('./models')
 
 

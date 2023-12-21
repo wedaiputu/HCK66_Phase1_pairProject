@@ -2,6 +2,13 @@
     {
         "username": "admin",
         "email": "admin@admin.com",
+        "role" : "admin",
+        "password": "admin"
+    },
+    {
+        "username": "admin",
+        "email": "admin@admin.com",
+        "role": "pilot",
         "password": "admin"
     }
 ]

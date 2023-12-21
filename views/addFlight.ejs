@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/addFlight" method="post">
+        <label for="planeId">Plane</label>
+        <select name="planeId" >
+        <% data.forEach(el => { %>
+                <option value="<%= el.id %>"><%= el.planeName  %></option>
+                <% }) %>
+            </select>
+        <label for="destinationId">Destination</label>
+        <select name="destinationId" >
+        <% dataDestination.forEach(el => { %>
+                <option value="<%= el.id %>"><%= el.destiantionName  %></option>
+                <% }) %>
+            </select>
+            <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>

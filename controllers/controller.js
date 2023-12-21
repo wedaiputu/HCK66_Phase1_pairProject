@@ -1,8 +1,7 @@
 const { Destination, Pilot, Plane, Schedule } = require('../models')
 const Login = require('./login')
 const Register = require('./register')
-const { bcrypt } = require('bcryptjs')
-
+const bcrypt = require('bcrypt')
 
 class Controller {
 
@@ -30,14 +29,13 @@ class Controller {
 
   static async pilot(req, res) {
     try {
-      console.log(req.session)
       let data = await Pilot.findAll({
         include: Plane
       })
 
-      let user = { email: req.session.email }
+      let user = { email: req.session.email, role: req.session.role }
 
-
+      console.log(req.session)
       res.render('pilot', { data, user })
     } catch (error) {
       res.send(error.message)

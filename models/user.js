@@ -29,10 +29,12 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
 
-    static async login(input) {
+    static async login(req) {
+      let input = req.body
       const account = await User.findOne({
         attributes: [
           "id",
+          "role",
           "email",
           "password",
         ],
@@ -40,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
           email: input.email
         }
       })
+
+      req.session.role = account.role
 
       if(account) {
         const isValidPassword = bcrypt.compareSync(input.password, account.password)
@@ -52,6 +56,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
+    role: {
+      type: DataTypes.STRING,
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
