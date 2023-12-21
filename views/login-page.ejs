@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/form-page.css">
+  <title>Login - Barbie Card Shop</title>
+</head>
+<body>
+  <section id="content">
+    <form method="post" action="/login">
+      <h1>LOGIN</h1>
+      <div class="email">
+        <label for="email">email</label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div class="password">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+      </div>
+      <% if(error) { %>
+        <div class="error">
+          <p>*<%= error %></p>
+        </div>
+      <% } %>
+      <input type="submit" value="LOGIN" id="btn">
+    </form>
+  </section>
+</body>
+</html>

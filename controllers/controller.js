@@ -1,12 +1,44 @@
 const {Destination, Pilot, Plane, Schedule} = require('../models')
+const Login = require('./login')
+const Register = require('./register')
+const {bcrypt} = require('bcryptjs')
+
 
 class Controller {
+    
+    static async out(req, res) {
+        try {
+          req.session.destroy()
+          
+          res.redirect('/login')
+        } catch (error) {
+          res.send(error)
+        }
+      }
+    
+    static showLandingPage(req, res) {
+        try {
+          const isLogin = req.session.UserId
+          
+          res.render('landing-page', {
+            isLogin
+          })
+        } catch (error) {
+          res.send(error)
+        }
+      }
+
     static async pilot(req, res){
         try {
+                console.log(req.session)
             let data = await Pilot.findAll({
                     include : Plane
             })
-            res.render('pilot', {data})
+
+            let user = {email: req.session.email}
+
+        
+            res.render('pilot', {data,user})
         } catch (error) {
             res.send(error.message)
         }
@@ -22,4 +54,4 @@ class Controller {
         }
     }
 }
-module.exports = Controller
+module.exports = {Controller, Login, Register}

@@ -1,9 +1,9 @@
+
 const express = require('express');
 const app = express();
 const router = require('./routes');
 const port = 3000
-const LoginController = require('./controllers/login')
-const {Destination, Plane, Pilot, Schedule} = require('./models')
+// const {Destination, Plane, Pilot, Schedule} = require('./models')
 
 
 

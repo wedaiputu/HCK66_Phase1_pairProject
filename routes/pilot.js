@@ -3,6 +3,6 @@ const pilot = express.Router()
 const Controller = require('../controllers/controller')
 
 
-pilot.get('/', Controller.pilot)
-pilot.get('/home', Controller.planeDestination)
+// pilot.get('/', Controller.pilot)
+
 module.exports = pilot

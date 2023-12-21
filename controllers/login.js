@@ -1,38 +1,42 @@
-const {Admin} = require('../models')
+const { User } = require('../models/index')
 
-const { comparePass } = require('../helpers/brcypt');
+class Login {
+  static show(req, res) {
+    try {
+      const error = req.query.error
 
 
-class AdminController {
-        static async register(req, res) {
-            try {
-                const admins = await Admin.create(req.body);
-                res.render('register',{admins})
-                
-            } catch (error) {
-                throw error
-        }
+      res.render('login-page', {
+        error,
+    
+      })
+    } catch (error) {
+      console.log(error);
+      res.send(error)
     }
+  }
 
-    static async login(req, res) {
-        try {
-            const { email, password } = req.body;
-            if (!email) throw { name: "InvalidInput", field: "email" };
-            if (!password) throw { name: "InvalidInput", field: "password" };
+  static async login(req, res) {
+    try {
+      const user = await User.login(req.body)
+      req.session.UserId = user
+      req.session.email = req.body.email
 
-            const data = await Admin.findOne({
-                where: {
-                    email: email,
-                }
-            })
-            if (!data) throw { name: "Unauthenticated" };
-            if (!comparePass(password, data.password)) throw { name: "Unauthenticated" }; 
-            // return data;
-            res.render('login', {data})
-        } catch (error) {
-            throw error
-        }
+      res.redirect('/')
+    } catch (error) {
+      res.redirect(`/login?error=${error.message}`)
     }
+  }
+
+  static async out(req, res) {
+    try {
+      req.session.UserId.destroy()
+      
+      res.redirect('/')
+    } catch (error) {
+      res.send(error)
+    }
+  }
 }
 
-module.exports = AdminController
+module.exports = Login
