@@ -4,6 +4,7 @@ const { Controller } = require('../controllers/controller')
 const AdminController = require('../controllers/login')
 const session = require('express-session')
 const destinationRouter = require('./destinationRouter')
+const chartRouter = require('./chartRouter')
 
 router.use(session({
   secret: 'keyboard cat'
@@ -31,6 +32,7 @@ router.get('/showPilot', Controller.showPilot)
 router.get('/showPlane', Controller.showPlane)
 router.use('/showDestination',destinationRouter )
 router.use('/addFlight', addRouter)
+router.use('/chart',chartRouter)
 
 router.use(isLogin)
 module.exports = router
