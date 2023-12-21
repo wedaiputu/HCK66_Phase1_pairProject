@@ -22,11 +22,6 @@ module.exports = (sequelize, DataTypes) => {
         email: input.email,
         password: input.password
       })
-
-      await profileModel.create({
-        name: input.username,
-        UserId: userCreated.id
-      })
     }
 
     static async login(req) {
@@ -58,40 +53,6 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     role: {
       type: DataTypes.STRING,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          args: true,
-          msg: "Username is required."
-        },
-        notEmpty: {
-          args: true,
-          msg: "Username is required."
-        },
-        notContains: {
-          args: ' ',
-          msg: "Spacebar not allowed."
-        },
-        async notSame(value) {
-          const usernameUser = await User.findOne({
-            attributes: [
-              "username"
-            ],
-            where: {
-              username: {
-                [Op.like]: value
-              }
-            }
-          })
-          
-          if(usernameUser) {
-            throw new Error('Username already use.')
-          }
-        }
-      }
     },
     email: {
       type: DataTypes.STRING,
@@ -149,13 +110,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate: (user, _) => {
-        // const salt = bcrypt.genSaltSync()
-        // const hash = bcrypt.hashSync(user.password, salt)
+        const salt = bcrypt.genSaltSync()
+        const hash = bcrypt.hashSync(user.password, salt)
 
-        // user.username = user.username.toLowerCase()
-        // user.email = user.email.toLowerCase()
-        // user.password = hash
-        // if(user.role !== 'Admin') user.role = "User"
+        user.role = 'pilot'
+        user.email = user.email
+        user.password = hash
       }
     },
     sequelize,

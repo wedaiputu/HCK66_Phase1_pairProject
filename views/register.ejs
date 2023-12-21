@@ -8,8 +8,9 @@
 </head>
 <body>
   <section id="content">
-    <form method="post" action="/login">
-      <h1>LOGIN</h1>
+    <form method="post" action="/register">
+      <h1>REGISTER</h1>
+      
       <div class="email">
         <label for="email">email</label>
         <input type="text" name="email" id="email">
@@ -23,9 +24,8 @@
           <p>*<%= error %></p>
         </div>
       <% } %>
-      <input type="submit" value="LOGIN" id="btn">
+      <input type="submit" value="REGISTER" id="btn">
     </form>
-    <a href="/register">register</a>
   </section>
 </body>
 </html>

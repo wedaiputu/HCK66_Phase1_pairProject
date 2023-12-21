@@ -6,7 +6,7 @@ class Register {
       const isLogin = req.session.UserId
       const err = req.query.err ? req.query.err.split(',') : ""
       
-      res.render('register-page', {
+      res.render('register', {
         isLogin,
         error: err
       })
@@ -19,8 +19,9 @@ class Register {
     try {
       await User.add(req.body, UserProfile)
 
-      res.redirect('/')
+      res.redirect('/login')
     } catch (error) {
+
       if(error.name === "SequelizeValidationError") {
         const err = error.errors.map(msg => msg.message)
         res.redirect(`/register?err=${err}`)

@@ -11,7 +11,7 @@ router.use(session({
 
 
 const login = require('./login')
-// const register = require('./register')
+const register = require('./register')
 const addRouter = require('./addRouter')
 
 const isLogin = function (req, res, next) {
@@ -26,6 +26,7 @@ const isLogin = function (req, res, next) {
 router.get('/', Controller.pilot) 
 router.get('/logout', Controller.out) 
 router.use('/login', login)
+router.use('/register', register)
 router.get('/showPilot', Controller.showPilot)
 router.get('/showPlane', Controller.showPlane)
 router.use('/showDestination',destinationRouter )
