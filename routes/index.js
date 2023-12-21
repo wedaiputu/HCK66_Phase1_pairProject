@@ -24,8 +24,8 @@ const isLogin = function (req, res, next) {
 router.get('/', Controller.pilot) 
 router.get('/logout', Controller.out) 
 router.use('/login', login)
-// router.use('/register', register)
-// router.use("/pilot",pilot)
+router.get('/showPilot', Controller.showPilot)
+router.get('/showPlane', Controller.showPlane)
 
 router.use(isLogin)
 module.exports = router

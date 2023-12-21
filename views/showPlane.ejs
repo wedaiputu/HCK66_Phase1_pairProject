@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Pilot</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Plane Name</th>
+          <th>Condition</th>
+          <th>Capacity</th>
+          <th>Pilot Name</th>
+        </tr>
+        <% data.forEach(element => { %>   
+        <tr>
+                <td><%= element.planeName %></td>
+                <td><%= element.condition %></td>
+                <td><%= element.capacity %></td>
+                <td><%= element.Pilot.pilotName %></td>
+            </tr>
+            <% }); %>
+      </table>
+      
+</body>
+</html>
