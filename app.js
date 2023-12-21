@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./routes');
 const port = 3000
+const LoginController = require('./controllers/login')
 const {Destination, Plane, Pilot, Schedule} = require('./models')
 
 
@@ -11,6 +12,7 @@ app.use(express.static("views"))
 app.use(express.urlencoded({extended:true}))
 
 app.use('/', router)
+
 
 // app.get('/', async (req, res) =>{
 //   let data = await Plane.findAll({

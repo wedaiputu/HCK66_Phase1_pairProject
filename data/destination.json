@@ -1,18 +1,18 @@
 [
     {   
-        "name" : "Dublin",
+        "destiantionName" : "Dublin",
         "country" : "Ireland",
         "coordinate": "53.426719, -6.256214",
         "airportCode" : "DUB"
     },
     {   
-        "name" : "Edinburgh",
+        "destiantionName" : "Edinburgh",
         "country" : "England",
         "coordinate" :"-3.36375, 55.948611",
         "airportCode" : "EDI"
     },
     {   
-        "name" : "Frankfurt",
+        "destiantionName" : "Frankfurt",
         "country" : "Germany",
         "coordinate" : "8.570555, 50.110924",
         "airportCode" : "FRA"

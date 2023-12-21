@@ -15,10 +15,10 @@ module.exports = {
       departureTime: {
         type: Sequelize.INTEGER
       },
-      planeId: {
+      PlaneId: {
         type: Sequelize.INTEGER
       },
-      destinationId: {
+      DestinationId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

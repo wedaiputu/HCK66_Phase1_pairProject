@@ -64,6 +64,8 @@ npx sequelize-cli model:generate --name Plane --attributes name:string,condition
 
 npx sequelize-cli model:generate --name Pilot --attributes name:string,licenseNumber:string,experience:integer,experience:integer
 
+npx sequelize-cli model:generate --name Admin --attributes name:string,password:string
+
 npx sequelize-cli model:generate --name Destination --attributes name:string,country:string,coordinate:float,airportCode:integer
 
 npx sequelize-cli model:generate --name Schedule --attributes arrivalTime:integer,departureTime:integer,planeId:integer,destinationId:integer
@@ -84,7 +86,7 @@ npx sequelize-cli seed:generate --name Plane
 npx sequelize-cli seed:generate --name Destianation
 npx sequelize-cli seed:generate --name Schedule
 
-npx sequelize-cli seed:generate --name
+npx sequelize-cli seed:generate --name Admin
 
 npx sequelize db:migrate
 npx sequelize db:seed:all

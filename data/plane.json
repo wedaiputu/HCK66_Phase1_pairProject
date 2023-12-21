@@ -1,19 +1,19 @@
 [
     {   
-        "name" : "A-101",
+        "planeName" : "A-101",
         "condition" : "Good",
         "capacity" : 30,
         "PilotId" : 1
     },
     {   
-        "name" : "B-102",
+        "planeName" : "B-102",
         "condition" : "Excelent",
         "capacity" : 20,
         "PilotId" : 2
 
     },
     {   
-        "name" : "C-103",
+        "planeName" : "C-103",
         "condition" : "Bad",
         "capacity" : 40,
         "PilotId" : 3

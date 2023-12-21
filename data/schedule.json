@@ -1,17 +1,21 @@
 [
     {   
-        "name" : "A-101",
-        "Condition" : "Good",
-        "Capacity" : 30
+        "arrivalTime" : "00:00:00",
+        "departureTime" : "01:00:00",
+        "PlaneId" : 1,
+        "DestinationId" :1
     },
     {   
-        "name" : "A-102",
-        "Condition" : "Excelent",
-        "Capacity" : 20
+        "arrivalTime" : "00:00:00",
+        "departureTime" : "01:00:00",
+        "PlaneId" : 1,
+        "DestinationId" :2
     },
     {   
-        "name" : "A-103",
-        "Condition" : "Bad",
-        "Capacity" : 40
+        
+        "arrivalTime" : "00:00:00",
+        "departureTime" : "01:00:00",
+        "PlaneId" : 1,
+        "DestinationId" :3
     }
 ]

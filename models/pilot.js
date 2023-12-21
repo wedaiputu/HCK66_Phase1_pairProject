@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pilot.init({
-    name: DataTypes.STRING,
+    pilotName: DataTypes.STRING,
     licenseNumber: DataTypes.STRING,
     experience: DataTypes.INTEGER,
     experience: DataTypes.INTEGER
